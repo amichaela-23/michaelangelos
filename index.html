@@ -53,6 +53,23 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            align-items: start;
+        }
+        .video-container {
+            position: relative;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
         .video-title {
             position: absolute;
@@ -63,7 +80,7 @@
             color: white;
             padding: 10px 15px;
             font-size: 16px;
-            font-weight: 200;
+            font-weight: bold;
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
@@ -74,10 +91,43 @@
             visibility: visible;
             opacity: 1;
         }
+        
+        /* About Page Styles */
+        .about-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .about-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            text-align: left;
+        }
+        
+        .about-image {
+            flex: 0 0 400px;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
-
     <header>
       <h1>Michael Angelos - Producer</h1>
     <nav>
@@ -95,210 +145,330 @@
         </p>
         <p>323.252.8989</p>
       </div>
-      
     </header>
-  <div class="video-grid" id="video-grid">
-    <!-- Videos will be automatically added here -->
-</div>
-        <style>
-   .video-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: start;
-}
-.video-container {
-    position: relative;
-    cursor: pointer;
-    aspect-ratio: 16/9;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    max-width: 100%;
-}
-.video-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-.video-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    text-align: center;
-    width: 80%;
-}
-.video-container:hover .video-title {
-    visibility: visible;
-    opacity: 1;
-}
 
-        </style>
-
-        <div class="video-grid">
-    <!-- Tan Luxe Video -->
-    <div class="video-container" id="tan-luxe-container">
-        <img id="tan-luxe-thumbnail" src="https://via.placeholder.com/400x225" alt="Tan Luxe Video Preview">
-
-        <div class="video-title">"Tan Luxe" - Dir. LJ Johnson</div>
+    <!-- About Page -->
+    <div id="about-page" class="about-page" style="display: none;">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/IMG_2024_06_11-09_57_48_3650_EE50B1A2.jpeg" 
+                     alt="Michael Angelos" 
+                     class="profile-image">
+            </div>
+            <div class="about-text">
+                <p>I've handled all aspects of individual productions—from bidding/budgeting to final delivery. Developed an extensive knowledge of every area of physical production—extending from location scouting, shoot scheduling, casting, art department, and physical effects to editorial, color correction, visual effects and final on-line delivery.</p>
+                
+                <p>Clients include: Maybeline, Walmart, Wayfair, Tom Ford, Progressive, NBA, L'Oréal, Intel, Cricket, Dodge, AT&T, INTEL, Allstate, Volvo, Kellogg's, Samsung, Taco Bell, Princess Cruises, Carnival, Tide, Burger King, Google, Lexus, Cadillac, Exxon, Chase, Beats, Goodyear, GIECO, Comcast, American Airlines, Nike, UFC, ABC, Nickelodeon, CBS, Universal, Lions Gate, Disney, A&E, E!, Marvel, Paramount, NBC, Turner, MTV, Food Network, Jennifer Lopez, Pharrell, Lana Del Rey, Billy EiIlish, Selena Gomez.</p>
+                
+                <p>Born and raised in LA I dig endurance races, mean things George Harrison said, the smell of mom and pop health food stores, things that are French and never finishing the electronic music I try to make.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Pony Video -->
-    <div class="video-container" id="pony-container">
-        <img id="pony-thumbnail" src="" alt="Pony Video Preview">
-        <div class="video-title">"Quicken Pony" - Dir. LJ Johnson</div>
-    </div>
-    <!-- GA Lottery Video -->
-    <div class="video-container" id="ga-lottery-container">
-        <img id="ga-lottery-thumbnail" src="" alt="GA Lottery Video Preview">
-        <div class="video-title">"GA Lottery - It's Called Cash" - Dir. LJ Johnson</div>
-    </div>
-<div class="video-container" id="billie-eilish-container">
-    <img id="billie-eilish-thumbnail" src="" alt="Billie Eilish Video Preview">
-    <div class="video-title">"Billie Eilish - all the good girls go to hell" - Dir. Rich Lee</div>
-</div>
+    <div id="work-page" class="video-grid">
+        <!-- Tan Luxe Video -->
+        <div class="video-container" id="tan-luxe-container">
+            <img id="tan-luxe-thumbnail" src="https://via.placeholder.com/400x225" alt="Tan Luxe Video Preview">
+            <div class="video-title">"Tan Luxe" - Dir. LJ Johnson</div>
+        </div>
 
-        <script>
-            document.getElementById("tan-luxe-container").addEventListener("click", function () {
-                window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_TanLuxe_60.mp4?v=1739301238516", "_blank");
+        <!-- Pony Video -->
+        <div class="video-container" id="pony-container">
+            <img id="pony-thumbnail" src="" alt="Pony Video Preview">
+            <div class="video-title">"Quicken Pony" - Dir. LJ Johnson</div>
+        </div>
+
+        <!-- GA Lottery Video -->
+        <div class="video-container" id="ga-lottery-container">
+            <img id="ga-lottery-thumbnail" src="" alt="GA Lottery Video Preview">
+            <div class="video-title">"GA Lottery - It's Called Cash" - Dir. LJ Johnson</div>
+        </div>
+
+        <!-- Billie Eilish Video -->
+        <div class="video-container" id="billie-eilish-container">
+            <img id="billie-eilish-thumbnail" src="https://via.placeholder.com/400x225" alt="Billie Eilish Video Preview">
+            <div class="video-title">"Billie Eilish - all the good girls go to hell" - Dir. Rich Lee</div>
+        </div>
+
+        <!-- Progressive Video -->
+        <div class="video-container" id="progressive-container">
+            <img id="progressive-thumbnail" src="" alt="Progressive Video Preview">
+            <div class="video-title">"Progressive 'Interruption'" - Dir. JJ Adler</div>
+        </div>
+        <!-- NBA League Pass Video -->
+        <div class="video-container" id="nba-container">
+            <img id="nba-thumbnail" src="https://via.placeholder.com/400x225" alt="NBA League Pass Video Preview">
+            <div class="video-title">"NBA League Pass" - Dir. Scott Cudmore</div>
+        </div>
+        <!-- Final Fantasy XIV Video -->
+        <div class="video-container" id="ffxiv-container">
+            <img id="ffxiv-thumbnail" src="/api/placeholder/400/320" alt="Final Fantasy XIV Video Preview">
+            <div class="video-title">"Final Fantasy XIV - Board of Turalism" - Dir. Johnny Milord</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("tan-luxe-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_TanLuxe_60.mp4?v=1739301238516", "_blank");
+            // Final Fantasy XIV Video
+            generateVideoThumbnail({
+                videoUrl: 'https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/FINAL%20FANTASY%20XIV%20-%20Board%20of%20Turalism.mp4?v=1739334292700',
+                thumbnailId: 'ffxiv-thumbnail',
+                timestamp: 5.0, // Starting with 5 seconds, we can adjust this
+                fallbackUrl: 'https://via.placeholder.com/400x225?text=Final+Fantasy+XIV'
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoElement = document.createElement("video");
+            videoElement.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_TanLuxe_60.mp4?v=1739301238516";
+            videoElement.crossOrigin = "anonymous";
+            videoElement.preload = "metadata";
+            videoElement.style.display = "none";
+            document.body.appendChild(videoElement);
+
+            videoElement.addEventListener("loadedmetadata", function () {
+                videoElement.currentTime = videoElement.duration * 0.5;
             });
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const videoElement = document.createElement("video");
-                videoElement.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_TanLuxe_60.mp4?v=1739301238516";
-                videoElement.crossOrigin = "anonymous";
-                videoElement.preload = "metadata";
-                videoElement.style.display = "none";
-                document.body.appendChild(videoElement);
+            videoElement.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = videoElement.videoWidth / 2;
+                canvas.height = videoElement.videoHeight / 2;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
-                videoElement.addEventListener("loadedmetadata", function () {
-                    videoElement.currentTime = videoElement.duration * 0.5;
-                });
-
-                videoElement.addEventListener("seeked", function () {
-                    const canvas = document.createElement("canvas");
-                    canvas.width = videoElement.videoWidth / 2;
-                    canvas.height = videoElement.videoHeight / 2;
-                    const ctx = canvas.getContext("2d");
-                    ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-
-                    try {
-                        const imageData = canvas.toDataURL("image/jpeg");
-                        document.getElementById("tan-luxe-thumbnail").src = imageData;
-                    } catch (e) {
-                        console.error("Error generating thumbnail:", e);
-                    }
-                });
+                try {
+                    const imageData = canvas.toDataURL("image/jpeg");
+                    document.getElementById("tan-luxe-thumbnail").src = imageData;
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
             });
-             // Pony Video
-    document.getElementById("pony-container").addEventListener("click", function () {
-        window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_Quicken%20Pony%2030%20DC_1.mp4?v=1739299909819", "_blank");
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const ponyVideo = document.createElement("video");
-        ponyVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_Quicken%20Pony%2030%20DC_1.mp4?v=1739299909819";
-        ponyVideo.crossOrigin = "anonymous";
-        ponyVideo.preload = "metadata";
-        ponyVideo.style.display = "none";
-        document.body.appendChild(ponyVideo);
-
-        ponyVideo.addEventListener("loadedmetadata", function () {
-            ponyVideo.currentTime = ponyVideo.duration * 0.8;
         });
 
-        ponyVideo.addEventListener("seeked", function () {
-            const canvas = document.createElement("canvas");
-            canvas.width = ponyVideo.videoWidth / 2;
-            canvas.height = ponyVideo.videoHeight / 2;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(ponyVideo, 0, 0, canvas.width, canvas.height);
-
-            try {
-                document.getElementById("pony-thumbnail").src = canvas.toDataURL("image/jpeg");
-            } catch (e) {
-                console.error("Error generating thumbnail:", e);
-            }
-        });
-    });
-     // GA Lottery Video
-    document.getElementById("ga-lottery-container").addEventListener("click", function () {
-        window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_GALotto_ItsCalledCash_DC30.mp4?v=1739301218425", "_blank");
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const gaLotteryVideo = document.createElement("video");
-        gaLotteryVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_GALotto_ItsCalledCash_DC30.mp4?v=1739301218425";
-        gaLotteryVideo.crossOrigin = "anonymous";
-        gaLotteryVideo.preload = "metadata";
-        gaLotteryVideo.style.display = "none";
-        document.body.appendChild(gaLotteryVideo);
-
-        gaLotteryVideo.addEventListener("loadedmetadata", function () {
-            gaLotteryVideo.currentTime = gaLotteryVideo.duration * 0.5;
+        // Pony Video
+        document.getElementById("pony-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_Quicken%20Pony%2030%20DC_1.mp4?v=1739299909819", "_blank");
         });
 
-        gaLotteryVideo.addEventListener("seeked", function () {
-            const canvas = document.createElement("canvas");
-            canvas.width = gaLotteryVideo.videoWidth / 2;
-            canvas.height = gaLotteryVideo.videoHeight / 2;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(gaLotteryVideo, 0, 0, canvas.width, canvas.height);
+        document.addEventListener("DOMContentLoaded", function () {
+            const ponyVideo = document.createElement("video");
+            ponyVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_Quicken%20Pony%2030%20DC_1.mp4?v=1739299909819";
+            ponyVideo.crossOrigin = "anonymous";
+            ponyVideo.preload = "metadata";
+            ponyVideo.style.display = "none";
+            document.body.appendChild(ponyVideo);
 
-            try {
-                document.getElementById("ga-lottery-thumbnail").src = canvas.toDataURL("image/jpeg");
-            } catch (e) {
-                console.error("Error generating thumbnail:", e);
-            }
+            ponyVideo.addEventListener("loadedmetadata", function () {
+                ponyVideo.currentTime = ponyVideo.duration * 0.8;
+            });
+
+            ponyVideo.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = ponyVideo.videoWidth / 2;
+                canvas.height = ponyVideo.videoHeight / 2;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(ponyVideo, 0, 0, canvas.width, canvas.height);
+
+                try {
+                    document.getElementById("pony-thumbnail").src = canvas.toDataURL("image/jpeg");
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
+            });
         });
-    });
-// Billie Eilish Video
-document.getElementById("billie-eilish-container").addEventListener("click", function () {
-    window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/Billie%20Eilish.mp4?v=1739306129862", "_blank");
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const billieVideo = document.createElement("video");
-    billieVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/Billie%20Eilish.mp4?v=1739306129862";
-    billieVideo.crossOrigin = "anonymous";
-    billieVideo.preload = "metadata";
-    billieVideo.style.display = "none";
-    document.body.appendChild(billieVideo);
+        // GA Lottery Video
+        document.getElementById("ga-lottery-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_GALotto_ItsCalledCash_DC30.mp4?v=1739301218425", "_blank");
+        });
 
-    billieVideo.addEventListener("loadedmetadata", function () {
-        billieVideo.currentTime = billieVideo.duration * 0.5;
-    });
+        document.addEventListener("DOMContentLoaded", function () {
+            const gaLotteryVideo = document.createElement("video");
+            gaLotteryVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_GALotto_ItsCalledCash_DC30.mp4?v=1739301218425";
+            gaLotteryVideo.crossOrigin = "anonymous";
+            gaLotteryVideo.preload = "metadata";
+            gaLotteryVideo.style.display = "none";
+            document.body.appendChild(gaLotteryVideo);
 
-    billieVideo.addEventListener("seeked", function () {
-        const canvas = document.createElement("canvas");
-        canvas.width = billieVideo.videoWidth / 2;
-        canvas.height = billieVideo.videoHeight / 2;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(billieVideo, 0, 0, canvas.width, canvas.height);
+            gaLotteryVideo.addEventListener("loadedmetadata", function () {
+                gaLotteryVideo.currentTime = gaLotteryVideo.duration * 0.5;
+            });
 
-        try {
-            document.getElementById("billie-eilish-thumbnail").src = canvas.toDataURL("image/jpeg");
-        } catch (e) {
-            console.error("Error generating thumbnail:", e);
+            gaLotteryVideo.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = gaLotteryVideo.videoWidth / 2;
+                canvas.height = gaLotteryVideo.videoHeight / 2;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(gaLotteryVideo, 0, 0, canvas.width, canvas.height);
+
+                try {
+                    document.getElementById("ga-lottery-thumbnail").src = canvas.toDataURL("image/jpeg");
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
+            });
+        });
+
+        // NBA League Pass Video
+        document.getElementById("nba-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/NBA%20League%20Pass%20-%20Command%20Center%20(Director%20Cut).mp4?v=1739305679801", "_blank");
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Loading NBA video...");
+            const nbaVideo = document.createElement("video");
+            
+            nbaVideo.addEventListener("loadeddata", function() {
+                console.log("NBA video loaded");
+                setTimeout(() => {
+                    nbaVideo.currentTime = 11.0;  // Set to 11 seconds
+                }, 100);
+            });
+
+            nbaVideo.addEventListener("loadedmetadata", function () {
+                console.log("NBA metadata loaded");
+                setTimeout(() => {
+                    nbaVideo.currentTime = 11.0;  // Set to 11 seconds
+                }, 100);
+            });
+
+            nbaVideo.addEventListener("seeked", function () {
+                console.log("NBA video seeked");
+                const canvas = document.createElement("canvas");
+                canvas.width = nbaVideo.videoWidth;
+                canvas.height = nbaVideo.videoHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(nbaVideo, 0, 0, canvas.width, canvas.height);
+
+                const thumbnailUrl = canvas.toDataURL("image/jpeg");
+                document.getElementById("nba-thumbnail").src = thumbnailUrl;
+                console.log("NBA thumbnail set");
+            });
+
+            nbaVideo.addEventListener("error", function(e) {
+                console.error("NBA video error:", nbaVideo.error);
+            });
+
+            nbaVideo.crossOrigin = "anonymous";
+            nbaVideo.preload = "auto";
+            nbaVideo.muted = true;
+            nbaVideo.style.display = "none";
+            nbaVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/NBA%20League%20Pass%20-%20Command%20Center%20(Director%20Cut).mp4?v=1739305679801";
+            
+            document.body.appendChild(nbaVideo);
+            console.log("NBA video element added to DOM");
+        });
+
+        // Continue with Billie Eilish Video...
+        document.getElementById("billie-eilish-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/Billie%20Eilish.mp4?v=1739306129862", "_blank");
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Loading Billie video...");
+            const billieVideo = document.createElement("video");
+            
+            // Add load event listener before setting source
+            billieVideo.addEventListener("loadeddata", function() {
+                console.log("Billie video loaded");
+                setTimeout(() => {
+                    billieVideo.currentTime = billieVideo.duration * 0.5;  // Set to halfway point
+                }, 100);
+            });
+
+            billieVideo.addEventListener("loadedmetadata", function () {
+                console.log("Billie metadata loaded");
+                setTimeout(() => {
+                    billieVideo.currentTime = billieVideo.duration * 0.5;  // Set to halfway point
+                }, 100);
+            });
+
+            billieVideo.addEventListener("seeked", function () {
+                console.log("Billie video seeked");
+                const canvas = document.createElement("canvas");
+                canvas.width = billieVideo.videoWidth;
+                canvas.height = billieVideo.videoHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(billieVideo, 0, 0, canvas.width, canvas.height);
+
+                const thumbnailUrl = canvas.toDataURL("image/jpeg");
+                document.getElementById("billie-eilish-thumbnail").src = thumbnailUrl;
+                console.log("Billie thumbnail set");
+            });
+
+            billieVideo.addEventListener("error", function(e) {
+                console.error("Billie video error:", billieVideo.error);
+            });
+
+            // Set source and attributes last
+            billieVideo.crossOrigin = "anonymous";
+            billieVideo.preload = "auto";
+            billieVideo.muted = true;
+            billieVideo.style.display = "none";
+            billieVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/Billie%20Eilish.mp4?v=1739306129862";
+            
+            document.body.appendChild(billieVideo);
+            console.log("Billie video element added to DOM");
+        });
+
+        // Progressive Video
+        document.getElementById("progressive-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Motaur%20%7C%20Interruption%20%7C%20Progressive%20Insurance.mp4?v=1739305291961", "_blank");
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const progressiveVideo = document.createElement("video");
+            progressiveVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Motaur%20%7C%20Interruption%20%7C%20Progressive%20Insurance.mp4?v=1739305291961";
+            progressiveVideo.crossOrigin = "anonymous";
+            progressiveVideo.preload = "metadata";
+            progressiveVideo.style.display = "none";
+            document.body.appendChild(progressiveVideo);
+
+            progressiveVideo.addEventListener("loadedmetadata", function () {
+                progressiveVideo.currentTime = 5.0; // Set to exactly 5 seconds
+            });
+
+            progressiveVideo.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = progressiveVideo.videoWidth / 2;
+                canvas.height = progressiveVideo.videoHeight / 2;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(progressiveVideo, 0, 0, canvas.width, canvas.height);
+
+                try {
+                    document.getElementById("progressive-thumbnail").src = canvas.toDataURL("image/jpeg");
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
+            });
+        });
+    // Page Navigation
+    function showPage(pageId) {
+        // Hide all pages
+        document.getElementById('work-page').style.display = 'none';
+        document.getElementById('about-page').style.display = 'none';
+        
+        // Show selected page
+        document.getElementById(pageId).style.display = 'grid';
+        if (pageId === 'about-page') {
+            document.getElementById(pageId).style.display = 'block';
         }
+        
+        // Update active nav link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-page') === pageId) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Initialize page display
+    document.addEventListener('DOMContentLoaded', function() {
+        showPage('work-page');
     });
-});
-
-        </script>
-          
-
-       
+    </script>
+</body>
+</html>
