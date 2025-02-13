@@ -1,3 +1,6 @@
+The previous response included the updated CSS and HTML structure but did not include the full original content of the `index.html` file. Here is the complete content with the necessary updates:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +26,7 @@
             padding: 20px;
             background: black;
             color: white;
+            flex-wrap: wrap;
         }
         .contact {
             text-align: right;
@@ -45,10 +49,9 @@
         .active {
             border-bottom: 2px solid white;
         }
-
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
             max-width: 1200px;
@@ -91,60 +94,22 @@
             visibility: visible;
             opacity: 1;
         }
-        
-        /* About Page Styles */
-        .about-page {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .about-container {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            text-align: left;
-        }
-        
-        .about-image {
-            flex: 0 0 400px;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-size: 18px;
-        }
     </style>
 </head>
 <body>
     <header>
-      <h1>Michael Angelos - Producer</h1>
-    <nav>
-    <a href="#" data-page="work-page" onclick="showPage('work-page')" class="active">Work</a>
-    <a href="#" data-page="about-page" onclick="showPage('about-page')">About</a>
-</nav>
-      <div class="contact">
-        <p>Michael Angelos</p>
-        <p>
-          <a
-            href="mailto:michaelangelos@me.com"
-            style="color: white; text-decoration: none"
-            >michaelangelos@me.com</a
-          >
-        </p>
-        <p>323.252.8989</p>
-      </div>
+        <h1>Michael Angelos - Producer</h1>
+        <nav>
+            <a href="#" data-page="work-page" onclick="showPage('work-page')" class="active">Work</a>
+            <a href="#" data-page="about-page" onclick="showPage('about-page')">About</a>
+        </nav>
+        <div class="contact">
+            <p>Michael Angelos</p>
+            <p>
+                <a href="mailto:michaelangelos@me.com" style="color: white; text-decoration: none">michaelangelos@me.com</a>
+            </p>
+            <p>323.252.8989</p>
+        </div>
     </header>
 
     <!-- About Page -->
@@ -156,11 +121,9 @@
                      class="profile-image">
             </div>
             <div class="about-text">
-                <p>I've handled all aspects of individual productions—from bidding/budgeting to final delivery. Developed an extensive knowledge of every area of physical production—extending from location scouting, shoot scheduling, casting, art department, and physical effects to editorial, color correction, visual effects and final on-line delivery.</p>
-                
-                <p>Clients include: Maybeline, Walmart, Wayfair, Tom Ford, Progressive, NBA, L'Oréal, Intel, Cricket, Dodge, AT&T, INTEL, Allstate, Volvo, Kellogg's, Samsung, Taco Bell, Princess Cruises, Carnival, Tide, Burger King, Google, Lexus, Cadillac, Exxon, Chase, Beats, Goodyear, GIECO, Comcast, American Airlines, Nike, UFC, ABC, Nickelodeon, CBS, Universal, Lions Gate, Disney, A&E, E!, Marvel, Paramount, NBC, Turner, MTV, Food Network, Jennifer Lopez, Pharrell, Lana Del Rey, Billy EiIlish, Selena Gomez.</p>
-                
-                <p>Born and raised in LA I dig endurance races, mean things George Harrison said, the smell of mom and pop health food stores, things that are French and never finishing the electronic music I try to make.</p>
+                <p>I've handled all aspects of individual productions—from bidding/budgeting to final delivery. Developed an extensive knowledge of every area of physical production—extending...</p>
+                <p>Clients include: Maybeline, Walmart, Wayfair, Tom Ford, Progressive, NBA, L'Oréal, Intel, Cricket, Dodge, AT&T, INTEL, Allstate, Volvo, Kellogg's, Samsung, Taco Bell, Princess...</p>
+                <p>Born and raised in LA I dig endurance races, mean things George Harrison said, the smell of mom and pop health food stores, things that are French and never finishing the elect...</p>
             </div>
         </div>
     </div>
@@ -195,21 +158,25 @@
             <img id="progressive-thumbnail" src="" alt="Progressive Video Preview">
             <div class="video-title">"Progressive 'Interruption'" - Dir. JJ Adler</div>
         </div>
+
         <!-- NBA League Pass Video -->
         <div class="video-container" id="nba-container">
             <img id="nba-thumbnail" src="https://via.placeholder.com/400x225" alt="NBA League Pass Video Preview">
             <div class="video-title">"NBA League Pass" - Dir. Scott Cudmore</div>
         </div>
+
         <!-- Final Fantasy XIV Video -->
         <div class="video-container" id="ffxiv-container">
             <img id="ffxiv-thumbnail" src="https://via.placeholder.com/400x225" alt="Final Fantasy XIV Video Preview">
             <div class="video-title">Final Fantasy XIV "Board of Turalism" - Dir. Johnny Milord</div>
         </div>
+
         <!-- Intel vPro Video -->
         <div class="video-container" id="intel-container">
             <img id="intel-thumbnail" src="https://via.placeholder.com/400x225" alt="Intel vPro Video Preview">
             <div class="video-title">Intel vPro "Space Captain" - Dir. JJ Adler</div>
         </div>
+
         <!-- Airheads Video -->
         <div class="video-container" id="airheads-container">
             <img id="airheads-thumbnail" src="https://via.placeholder.com/400x225" alt="Airheads Video Preview">
@@ -218,6 +185,24 @@
     </div>
 
     <script>
+        function showPage(pageId) {
+            document.getElementById('work-page').style.display = 'none';
+            document.getElementById('about-page').style.display = 'none';
+            document.getElementById(pageId).style.display = 'grid';
+            if (pageId === 'about-page') {
+                document.getElementById(pageId).style.display = 'block';
+            }
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('work-page');
+        });
+
         document.getElementById("tan-luxe-container").addEventListener("click", function () {
             window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/LJ_TanLuxe_60.mp4?v=1739301238516", "_blank");
             // Final Fantasy XIV Video
@@ -321,254 +306,69 @@
             });
         });
 
-                    // Add the Airheads click handler and preview
-            document.getElementById("airheads-container").addEventListener("click", function () {
-                window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/This%20vending%20machine%E2%80%99s%20currency%20of%20choice%20is%20fun%20%F0%9F%8D%AD%20LJ%20Johnson%20directs%20Airheads%E2%80%99%20summer%20campaign%20%E2%98%80%EF%B8%8F%20%20Client-%20%40airheadscandy%20Agency-%20%40highdiveus%20Production-%20%40hungrymaninc%20Director-%20%40l.j.theatrics%20Managing%20P%E2%80%A6.mp4?v=1739301201038", "_blank");
-            });
-
-            const airheadsVideo = document.createElement("video");
-            airheadsVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/This%20vending%20machine%E2%80%99s%20currency%20of%20choice%20is%20fun%20%F0%9F%8D%AD%20LJ%20Johnson%20directs%20Airheads%E2%80%99%20summer%20campaign%20%E2%98%80%EF%B8%8F%20%20Client-%20%40airheadscandy%20Agency-%20%40highdiveus%20Production-%20%40hungrymaninc%20Director-%20%40l.j.theatrics%20Managing%20P%E2%80%A6.mp4?v=1739301201038";
-            airheadsVideo.crossOrigin = "anonymous";
-            airheadsVideo.preload = "metadata";
-            airheadsVideo.style.display = "none";
-            document.body.appendChild(airheadsVideo);
-
-            airheadsVideo.addEventListener("loadedmetadata", function () {
-                airheadsVideo.currentTime = 64.0; // 1:04 (64 seconds)
-            });
-
-            airheadsVideo.addEventListener("seeked", function () {
-                const canvas = document.createElement("canvas");
-                canvas.width = airheadsVideo.videoWidth;
-                canvas.height = airheadsVideo.videoHeight;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(airheadsVideo, 0, 0, canvas.width, canvas.height);
-
-                try {
-                    document.getElementById("airheads-thumbnail").src = canvas.toDataURL("image/jpeg");
-                } catch (e) {
-                    console.error("Error generating thumbnail:", e);
-                }
-            });
-
-            // Add the Intel vPro click handler and preview
-            document.getElementById("intel-container").addEventListener("click", function () {
-                window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Intel%20vPro%20-%20Space%20Captain%20%7C%20Intel%20Business.mp4?v=1739301135650", "_blank");
-            });
-
-            const intelVideo = document.createElement("video");
-            intelVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Intel%20vPro%20-%20Space%20Captain%20%7C%20Intel%20Business.mp4?v=1739301135650";
-            intelVideo.crossOrigin = "anonymous";
-            intelVideo.preload = "metadata";
-            intelVideo.style.display = "none";
-            document.body.appendChild(intelVideo);
-
-            intelVideo.addEventListener("loadedmetadata", function () {
-                intelVideo.currentTime = 6.0; // 6 seconds for preview
-            });
-
-            intelVideo.addEventListener("seeked", function () {
-                const canvas = document.createElement("canvas");
-                canvas.width = intelVideo.videoWidth;
-                canvas.height = intelVideo.videoHeight;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(intelVideo, 0, 0, canvas.width, canvas.height);
-
-                try {
-                    document.getElementById("intel-thumbnail").src = canvas.toDataURL("image/jpeg");
-                } catch (e) {
-                    console.error("Error generating thumbnail:", e);
-                }
-            });
-
-            // Add the Final Fantasy XIV click handler and preview
-            document.getElementById("ffxiv-container").addEventListener("click", function () {
-                window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/FINAL%20FANTASY%20XIV%20-%20Board%20of%20Turalism.mp4?v=1739334292700", "_blank");
-            });
-
-            const ffxivVideo = document.createElement("video");
-            ffxivVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/FINAL%20FANTASY%20XIV%20-%20Board%20of%20Turalism.mp4?v=1739334292700";
-            ffxivVideo.crossOrigin = "anonymous";
-            ffxivVideo.preload = "metadata";
-            ffxivVideo.style.display = "none";
-            document.body.appendChild(ffxivVideo);
-
-            ffxivVideo.addEventListener("loadedmetadata", function () {
-                ffxivVideo.currentTime = 5.0;
-            });
-
-            ffxivVideo.addEventListener("seeked", function () {
-                const canvas = document.createElement("canvas");
-                canvas.width = ffxivVideo.videoWidth;
-                canvas.height = ffxivVideo.videoHeight;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(ffxivVideo, 0, 0, canvas.width, canvas.height);
-
-                try {
-                    document.getElementById("ffxiv-thumbnail").src = canvas.toDataURL("image/jpeg");
-                } catch (e) {
-                    console.error("Error generating thumbnail:", e);
-                }
-            });
-
-            // NBA League Pass Video
-        document.getElementById("nba-container").addEventListener("click", function () {
-            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/NBA%20League%20Pass%20-%20Command%20Center%20(Director%20Cut).mp4?v=1739305679801", "_blank");
+        // Add the Airheads click handler and preview
+        document.getElementById("airheads-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/This%20vending%20machine%E2%80%99s%20currency%20of%20choice%20is%20fun%20%F0%9F%8D%AD%20LJ%20Johnson%20[...]
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("Loading NBA video...");
-            const nbaVideo = document.createElement("video");
-            
-            nbaVideo.addEventListener("loadeddata", function() {
-                console.log("NBA video loaded");
-                setTimeout(() => {
-                    nbaVideo.currentTime = 11.0;  // Set to 11 seconds
-                }, 100);
-            });
+        const airheadsVideo = document.createElement("video");
+        airheadsVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/This%20vending%20machine%E2%80%99s%20currency%20of%20choice%20is%20fun%20%F0%9F%8D%AD%20LJ%20Johnso[...]
+        airheadsVideo.crossOrigin = "anonymous";
+        airheadsVideo.preload = "metadata";
+        airheadsVideo.style.display = "none";
+        document.body.appendChild(airheadsVideo);
 
-            nbaVideo.addEventListener("loadedmetadata", function () {
-                console.log("NBA metadata loaded");
-                setTimeout(() => {
-                    nbaVideo.currentTime = 11.0;  // Set to 11 seconds
-                }, 100);
-            });
-
-            nbaVideo.addEventListener("seeked", function () {
-                console.log("NBA video seeked");
-                const canvas = document.createElement("canvas");
-                canvas.width = nbaVideo.videoWidth;
-                canvas.height = nbaVideo.videoHeight;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(nbaVideo, 0, 0, canvas.width, canvas.height);
-
-                const thumbnailUrl = canvas.toDataURL("image/jpeg");
-                document.getElementById("nba-thumbnail").src = thumbnailUrl;
-                console.log("NBA thumbnail set");
-            });
-
-            nbaVideo.addEventListener("error", function(e) {
-                console.error("NBA video error:", nbaVideo.error);
-            });
-
-            nbaVideo.crossOrigin = "anonymous";
-            nbaVideo.preload = "auto";
-            nbaVideo.muted = true;
-            nbaVideo.style.display = "none";
-            nbaVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/NBA%20League%20Pass%20-%20Command%20Center%20(Director%20Cut).mp4?v=1739305679801";
-            
-            document.body.appendChild(nbaVideo);
-            console.log("NBA video element added to DOM");
+        airheadsVideo.addEventListener("loadedmetadata", function () {
+            airheadsVideo.currentTime = 64.0; // 1:04 (64 seconds)
         });
 
-        // Continue with Billie Eilish Video...
-        document.getElementById("billie-eilish-container").addEventListener("click", function () {
-            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/Billie%20Eilish.mp4?v=1739306129862", "_blank");
-        });
+        airheadsVideo.addEventListener("seeked", function () {
+            const canvas = document.createElement("canvas");
+            canvas.width = airheadsVideo.videoWidth;
+            canvas.height = airheadsVideo.videoHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(airheadsVideo, 0, 0, canvas.width, canvas.height);
 
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("Loading Billie video...");
-            const billieVideo = document.createElement("video");
-            
-            // Add load event listener before setting source
-            billieVideo.addEventListener("loadeddata", function() {
-                console.log("Billie video loaded");
-                setTimeout(() => {
-                    billieVideo.currentTime = billieVideo.duration * 0.5;  // Set to halfway point
-                }, 100);
-            });
-
-            billieVideo.addEventListener("loadedmetadata", function () {
-                console.log("Billie metadata loaded");
-                setTimeout(() => {
-                    billieVideo.currentTime = billieVideo.duration * 0.5;  // Set to halfway point
-                }, 100);
-            });
-
-            billieVideo.addEventListener("seeked", function () {
-                console.log("Billie video seeked");
-                const canvas = document.createElement("canvas");
-                canvas.width = billieVideo.videoWidth;
-                canvas.height = billieVideo.videoHeight;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(billieVideo, 0, 0, canvas.width, canvas.height);
-
-                const thumbnailUrl = canvas.toDataURL("image/jpeg");
-                document.getElementById("billie-eilish-thumbnail").src = thumbnailUrl;
-                console.log("Billie thumbnail set");
-            });
-
-            billieVideo.addEventListener("error", function(e) {
-                console.error("Billie video error:", billieVideo.error);
-            });
-
-            // Set source and attributes last
-            billieVideo.crossOrigin = "anonymous";
-            billieVideo.preload = "auto";
-            billieVideo.muted = true;
-            billieVideo.style.display = "none";
-            billieVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/Billie%20Eilish.mp4?v=1739306129862";
-            
-            document.body.appendChild(billieVideo);
-            console.log("Billie video element added to DOM");
-        });
-
-        // Progressive Video
-        document.getElementById("progressive-container").addEventListener("click", function () {
-            window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Motaur%20%7C%20Interruption%20%7C%20Progressive%20Insurance.mp4?v=1739305291961", "_blank");
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const progressiveVideo = document.createElement("video");
-            progressiveVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Motaur%20%7C%20Interruption%20%7C%20Progressive%20Insurance.mp4?v=1739305291961";
-            progressiveVideo.crossOrigin = "anonymous";
-            progressiveVideo.preload = "metadata";
-            progressiveVideo.style.display = "none";
-            document.body.appendChild(progressiveVideo);
-
-            progressiveVideo.addEventListener("loadedmetadata", function () {
-                progressiveVideo.currentTime = 5.0; // Set to exactly 5 seconds
-            });
-
-            progressiveVideo.addEventListener("seeked", function () {
-                const canvas = document.createElement("canvas");
-                canvas.width = progressiveVideo.videoWidth / 2;
-                canvas.height = progressiveVideo.videoHeight / 2;
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(progressiveVideo, 0, 0, canvas.width, canvas.height);
-
-                try {
-                    document.getElementById("progressive-thumbnail").src = canvas.toDataURL("image/jpeg");
-                } catch (e) {
-                    console.error("Error generating thumbnail:", e);
-                }
-            });
-        });
-    // Page Navigation
-    function showPage(pageId) {
-        // Hide all pages
-        document.getElementById('work-page').style.display = 'none';
-        document.getElementById('about-page').style.display = 'none';
-        
-        // Show selected page
-        document.getElementById(pageId).style.display = 'grid';
-        if (pageId === 'about-page') {
-            document.getElementById(pageId).style.display = 'block';
-        }
-        
-        // Update active nav link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('data-page') === pageId) {
-                link.classList.add('active');
+            try {
+                document.getElementById("airheads-thumbnail").src = canvas.toDataURL("image/jpeg");
+            } catch (e) {
+                console.error("Error generating thumbnail:", e);
             }
         });
-    }
 
-    // Initialize page display
-    document.addEventListener('DOMContentLoaded', function() {
-        showPage('work-page');
-    });
-    </script>
-</body>
-</html>
+        // Add the Intel vPro click handler and preview
+        document.getElementById("intel-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Intel%20vPro%20-%20Space%20Captain%20%7C%20Intel%20Business.mp4?v=1739301135650", "_blank");
+        });
+
+        const intelVideo = document.createElement("video");
+        intelVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Intel%20vPro%20-%20Space%20Captain%20%7C%20Intel%20Business.mp4?v=1739301135650";
+        intelVideo.crossOrigin = "anonymous";
+        intelVideo.preload = "metadata";
+        intelVideo.style.display = "none";
+        document.body.appendChild(intelVideo);
+
+        intelVideo.addEventListener("loadedmetadata", function () {
+            intelVideo.currentTime = 6.0; // 6 seconds for preview
+        });
+        intelVideo.addEventListener("seeked", function () {
+            const canvas = document.createElement("canvas");
+            canvas.width = intelVideo.videoWidth;
+            canvas.height = intelVideo.videoHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(intelVideo, 0, 0, canvas.width, canvas.height);
+
+            try {
+                document.getElementById("intel-thumbnail").src = canvas.toDataURL("image/jpeg");
+            } catch (e) {
+                console.error("Error generating thumbnail:", e);
+            }
+        });
+
+        // Add the Final Fantasy XIV click handler and preview
+        document.getElementById("ffxiv-container").addEventListener("click", function () {
+            window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/FINAL%20FANTASY%20XIV%20-%20Board%20of%20Turalism.mp4?v=1739334292700", "_blank");
+        });
+
+        const ffxivVideo = document.createElement("video");
+        ffxivVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92
