@@ -202,8 +202,18 @@
         </div>
         <!-- Final Fantasy XIV Video -->
         <div class="video-container" id="ffxiv-container">
-            <img id="ffxiv-thumbnail" src="/api/placeholder/400/320" alt="Final Fantasy XIV Video Preview">
-            <div class="video-title">"Final Fantasy XIV - Board of Turalism" - Dir. Johnny Milord</div>
+            <img id="ffxiv-thumbnail" src="https://via.placeholder.com/400x225" alt="Final Fantasy XIV Video Preview">
+            <div class="video-title">Final Fantasy XIV "Board of Turalism" - Dir. Johnny Milord</div>
+        </div>
+        <!-- Intel vPro Video -->
+        <div class="video-container" id="intel-container">
+            <img id="intel-thumbnail" src="https://via.placeholder.com/400x225" alt="Intel vPro Video Preview">
+            <div class="video-title">Intel vPro "Space Captain" - Dir. JJ Adler</div>
+        </div>
+        <!-- Airheads Video -->
+        <div class="video-container" id="airheads-container">
+            <img id="airheads-thumbnail" src="https://via.placeholder.com/400x225" alt="Airheads Video Preview">
+            <div class="video-title">Airheads "Underwater Vending Machine" - Dir. LJ Johnson</div>
         </div>
     </div>
 
@@ -311,7 +321,97 @@
             });
         });
 
-        // NBA League Pass Video
+                    // Add the Airheads click handler and preview
+            document.getElementById("airheads-container").addEventListener("click", function () {
+                window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/This%20vending%20machine%E2%80%99s%20currency%20of%20choice%20is%20fun%20%F0%9F%8D%AD%20LJ%20Johnson%20directs%20Airheads%E2%80%99%20summer%20campaign%20%E2%98%80%EF%B8%8F%20%20Client-%20%40airheadscandy%20Agency-%20%40highdiveus%20Production-%20%40hungrymaninc%20Director-%20%40l.j.theatrics%20Managing%20P%E2%80%A6.mp4?v=1739301201038", "_blank");
+            });
+
+            const airheadsVideo = document.createElement("video");
+            airheadsVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/This%20vending%20machine%E2%80%99s%20currency%20of%20choice%20is%20fun%20%F0%9F%8D%AD%20LJ%20Johnson%20directs%20Airheads%E2%80%99%20summer%20campaign%20%E2%98%80%EF%B8%8F%20%20Client-%20%40airheadscandy%20Agency-%20%40highdiveus%20Production-%20%40hungrymaninc%20Director-%20%40l.j.theatrics%20Managing%20P%E2%80%A6.mp4?v=1739301201038";
+            airheadsVideo.crossOrigin = "anonymous";
+            airheadsVideo.preload = "metadata";
+            airheadsVideo.style.display = "none";
+            document.body.appendChild(airheadsVideo);
+
+            airheadsVideo.addEventListener("loadedmetadata", function () {
+                airheadsVideo.currentTime = 64.0; // 1:04 (64 seconds)
+            });
+
+            airheadsVideo.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = airheadsVideo.videoWidth;
+                canvas.height = airheadsVideo.videoHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(airheadsVideo, 0, 0, canvas.width, canvas.height);
+
+                try {
+                    document.getElementById("airheads-thumbnail").src = canvas.toDataURL("image/jpeg");
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
+            });
+
+            // Add the Intel vPro click handler and preview
+            document.getElementById("intel-container").addEventListener("click", function () {
+                window.open("https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Intel%20vPro%20-%20Space%20Captain%20%7C%20Intel%20Business.mp4?v=1739301135650", "_blank");
+            });
+
+            const intelVideo = document.createElement("video");
+            intelVideo.src = "https://cdn.glitch.global/178068f1-51af-4d9b-9f28-e92c3a186636/Intel%20vPro%20-%20Space%20Captain%20%7C%20Intel%20Business.mp4?v=1739301135650";
+            intelVideo.crossOrigin = "anonymous";
+            intelVideo.preload = "metadata";
+            intelVideo.style.display = "none";
+            document.body.appendChild(intelVideo);
+
+            intelVideo.addEventListener("loadedmetadata", function () {
+                intelVideo.currentTime = 6.0; // 6 seconds for preview
+            });
+
+            intelVideo.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = intelVideo.videoWidth;
+                canvas.height = intelVideo.videoHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(intelVideo, 0, 0, canvas.width, canvas.height);
+
+                try {
+                    document.getElementById("intel-thumbnail").src = canvas.toDataURL("image/jpeg");
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
+            });
+
+            // Add the Final Fantasy XIV click handler and preview
+            document.getElementById("ffxiv-container").addEventListener("click", function () {
+                window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/FINAL%20FANTASY%20XIV%20-%20Board%20of%20Turalism.mp4?v=1739334292700", "_blank");
+            });
+
+            const ffxivVideo = document.createElement("video");
+            ffxivVideo.src = "https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/FINAL%20FANTASY%20XIV%20-%20Board%20of%20Turalism.mp4?v=1739334292700";
+            ffxivVideo.crossOrigin = "anonymous";
+            ffxivVideo.preload = "metadata";
+            ffxivVideo.style.display = "none";
+            document.body.appendChild(ffxivVideo);
+
+            ffxivVideo.addEventListener("loadedmetadata", function () {
+                ffxivVideo.currentTime = 5.0;
+            });
+
+            ffxivVideo.addEventListener("seeked", function () {
+                const canvas = document.createElement("canvas");
+                canvas.width = ffxivVideo.videoWidth;
+                canvas.height = ffxivVideo.videoHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(ffxivVideo, 0, 0, canvas.width, canvas.height);
+
+                try {
+                    document.getElementById("ffxiv-thumbnail").src = canvas.toDataURL("image/jpeg");
+                } catch (e) {
+                    console.error("Error generating thumbnail:", e);
+                }
+            });
+
+            // NBA League Pass Video
         document.getElementById("nba-container").addEventListener("click", function () {
             window.open("https://cdn.glitch.me/178068f1-51af-4d9b-9f28-e92c3a186636/NBA%20League%20Pass%20-%20Command%20Center%20(Director%20Cut).mp4?v=1739305679801", "_blank");
         });
